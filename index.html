@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width='device-width', initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>도제 시작</title>
 </head>
+
 <body>
     <script>
-        let a = 10;
-        let b = 20;
-        console.log("a+b = " + (a + b));
+        let log = console.log;
+
+        // function Fname(a, b) {
+        //     return a + b;
+        // }
+
+        // let sum = Fname(10, 20);
+
+        // log(sum)
+
+        //일정시간 간격마다 특정함수를 계속 실행
+        let num = 1;
+        let id = 0;
+        
+        function interval() {
+            let str = ".";
+            for(let i =0; i<num; i++){
+                str += ".";
+            }
+            log(`박인붕${".".repeat(num)}`);
+            num++
+            if(num >= 10){
+                clearInterval(id);
+            }
+        }
+
+        id = setInterval(interval, 500);
+        
     </script>
 </body>
+
 </html>
