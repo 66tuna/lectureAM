@@ -12,25 +12,36 @@
 
 <body>
     <div class="container">
-        <div class="watch">
-            <div class="hour">
-                <div class="box">00</div>
-                <div class="box">01</div>
+        <div class="containerBox">
+            <div class="top">
+                <div class="control">
+                    <button id="start">▶</button>
+                    <button id="stop">||</button>
+                </div>
             </div>
 
-            <div class="minute">
-                <div class="box">00</div>
-                <div class="box">01</div>
-            </div>
-
-            <div class="second">
-                <div class="box">00</div>
-                <div class="box">01</div>
+            <div class="obverse">
+                <div class="watch">
+                    <div class="hour">
+                        <div class="box">00</div>
+                        <div class="box">01</div>
+                    </div>
+                    <span style="margin-top: 11px;">:</span>
+                    <div class="minute">
+                        <div class="box">00</div>
+                        <div class="box">01</div>
+                    </div>
+                    <span style="margin-top: 11px;">:</span>
+                    <div class="second">
+                        <div class="box">00</div>
+                        <div class="box">01</div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="control">
-            <button id="start">시작</button>
-            <button id="stop">정지</button>
+
+        <div class="right">
+
         </div>
     </div>
 
@@ -48,15 +59,20 @@
             $(".minute > .box").eq(1).html(`${m}`);
             $(".second > .box").eq(1).html(`${s}`);
 
-            
+            if (s < 60) {
+                $(".second > .box").eq(1).animate({ "top": 0 }, 500);
+                $(".second > .box").eq(0).animate({ "top": "-100%" }, 500);
+            }
+            if (s == 00) {
+                $(".minute > .box").eq(1).animate({ "top": 0 }, 500);
+                $(".minute > .box").eq(0).animate({ "top": "-100%" }, 500);
+            }
+            if (m == 00) {
+                $(".hour > .box").eq(1).animate({ "top": 0 }, 500);
+                $(".hour > .box").eq(0).animate({ "top": "-100%" }, 500);
+            }
 
-            $(".hour > .box").eq(1).animate({ "top": 0 }, 500);
-            $(".minute > .box").eq(1).animate({ "top": 0 }, 500);
-            $(".second > .box").eq(1).animate({ "top": 0 }, 500);
 
-            $(".hour > .box").eq(0).animate({ "top": "-100%" }, 500);
-            $(".minute > .box").eq(0).animate({ "top": "-100%" }, 500);
-            $(".second > .box").eq(0).animate({ "top": "-100%" }, 500);
 
             st = setTimeout(function () {
                 $(".hour > .box").eq(0).html(`${h}`);
@@ -74,21 +90,19 @@
             }, 600);
         }
 
-        function start(){
+        function start() {
             si = setInterval(watch, 1000);
         }
 
         function stop() {
-            event.stopPropagation();
-            clearInterval(st);
-            clearTimeout(si);
+            clearInterval(si);
         }
 
         $("#start").on("click", start);
         $("#stop").on("click", stop);
 
 
-        
+
     </script>
 </body>
 

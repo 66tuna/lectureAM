@@ -1,6 +1,12 @@
+@font-face{
+    src: url(./DS-DIGI.TTF);
+    font-family: 'asdf';
+}
 *{
     margin: 0;
     padding: 0;
+    color: #fff;
+    font-family: 'asdf';
 }
 
 .container{
@@ -8,32 +14,39 @@
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    flex-direction: column;
     align-items: center;
     height: 600px;
 }
 
 .watch{
-    width: 620px;
+    width: 420px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 50px;
-    font-size: 70px;
+    font-size: 120px;
 }
 
 .watch > div{
     width: 150px;
-    border: 1px solid #ddd;
     height: 150px;
     overflow: hidden; 
     border-radius: 10px;
     position: relative;
 }
 
+.control button{
+    background: none;
+    width: 170px;
+    height: 60px;
+    margin: 0 20px;
+    border-radius: 50%;
+    font-size: 35px;
+    font-weight: bold;
+}
+
 .watch > div > .box{
     width: 100%;
     height: 100%;
-    font-size: 70px;
+    font-size: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,4 +57,38 @@
 
 .watch > div > .box:first-child{
     top: 0;
+}
+
+
+.top{
+    width: 620px;
+    height: 125px;
+    border: 1px solid rgba(146, 146, 146, 0.562);
+    background: linear-gradient(to top, #d0ac98,#c9a169, #d5ac92,#c9a169, #c7a490,#d5ac92,#c9a169, #c7a490);
+    transform: skew(-57deg, 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.obverse{
+    width: 620px;
+    height: 240px;
+    border: 1px solid rgba(146, 146, 146, 0.562);
+    background: linear-gradient(to top, #d0ac98,#c9a169, #d5ac92,#c9a169, #c7a490,#d5ac92,#c9a169, #c7a490);
+    transform: skew(-1deg, 0deg);
+    margin-left: -16%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.right{
+    width: 196px;
+    height: 240px;
+    border: 1px solid rgba(146, 146, 146, 0.562);
+    background: linear-gradient(to top, #d0ac98,#c9a169, #d5ac92,#c9a169, #c7a490,#d5ac92,#c9a169, #c7a490);
+    transform: skew(-1deg, -33deg);
+    margin-left: -7%;
 }
