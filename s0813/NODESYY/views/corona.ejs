@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코로나 현황</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        .container {
+            width:800px;
+            height:300px;
+            margin:0 auto;
+            border:1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding:10px;
+        }
+
+        .data-div {
+            width:160px;
+            height:250px;
+            box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="data-div">
+            <div class="title">
+                <h4>전일대비</h4>
+            </div>
+            <div class="content">
+                소계 : <%= data.before[0] %>, 국내발생 : <%= data.before[1] %>, 해외유입 : <%= data.before[2] %>
+            </div>
+        </div>
+        <div class="data-div">
+            <div class="title">
+                <h4>격리해제</h4>
+            </div>
+            <div class="content">
+                누적 : <%= data.out[0] %>, 전일대비 : <%= data.out[1] %>
+            </div>
+        </div>
+        <div class="data-div">
+            <div class="title">
+                <h4>격리</h4>
+            </div>
+            <div class="content">
+                누적 : <%= data.in[0] %>, 전일대비 : <%= data.in[1] %>
+            </div>
+        </div>
+        <div class="data-div">
+            <div class="title">
+                <h4>사망</h4>
+            </div>
+            <div class="content">
+                누적 : <%= data.dead[0] %>, 전일대비 : <%= data.dead[1] %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
